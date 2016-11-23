@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>禁止输入</title>
+	</head>
+	<body>
+		js控制禁止输入<input type="text" id="input1" value="禁止输入" />
+		<br />
+		<br />
+		<br />
+		js控制禁止输入<input type="text" id="input2" value="禁止输入" />
+		<script>
+			window.onload=function(){
+				var _input1 = document.getElementById('input1'),
+					_input2 = document.getElementById('input2');
+					
+				_input1.onfocus=function(){ // 第一种写法   控制失去焦点
+					this.blur();
+				}
+				
+				var noText = function(){ // 第二种写法  通过keyup与blur组合使用
+					_input2.value="";  // 设置为空 
+				}
+				_input2.onkeyup=
+				_input2.onblur=noText;
+				
+			}
+		</script>
+	</body>
+</html>

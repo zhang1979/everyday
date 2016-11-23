@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>验证用户是否输入</title>
+	</head>
+	<body>
+		<input type="text" name="" id="strs" value="          需要过滤空格" />
+		<br />
+		<input type="button" id="isContent" value="验证是否为空" />
+		<script>
+			function isContent(chars){ // 验证是否为空，chars为过滤后的字符
+				return !chars ? true :false; //第一种写法
+				//return chars.length == 0? true:false //第二种写法
+			}
+			
+			window.onload=function(){
+				// 获取验证是否为的响应元素
+				var _isContent = document.getElementById('isContent'), // 获取按钮
+					_strs = document.getElementById('strs'); // 获取待验证的文本对象
+					
+					
+				_isContent.onclick=function(){ //绑定按钮事件
+					if(isContent(_strs.value)){ 
+						alert("您输入的为空");
+					}else {
+						alert("您输入的不为空");
+					}
+				}	
+					
+				/*_isContent.onclick=function(){ //绑定按钮事件
+					if(!_strs.value.replace(/^(\s|\uOOAO)+|(\s|\uOOAO)+$/g,"")){ 
+						alert("您输入的为空");
+					}else {
+						alert("您输入的不为空");
+					}
+				}*/
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>去除字符串左右的空格</title>
+	</head>
+	<body>
+		<input type="text" name="" id="qq" value="" />
+		<input type="button" name="btn" id="btn" value="过滤" />
+		<script>
+			window.onload=function(){
+				var _btn = document.getElementById('btn'), // 获取按钮
+					_qq = document.getElementById('qq'); // 获取被过滤元素
+					
+					_btn.onclick=function(){ //去除空格
+						_qq.value=_qq.value.replace(/^(\s|\uOOAO)+|(\s|\uOOAO)+$/g,""); // 正则替换
+					}
+					
+					/*
+					 *代码说明： 
+					 * replace()是javascript中的原生函数，此处使用replace()替换一个与正则表达式匹配的字符串，性能相对比较优越。
+					 * 其中的正则“/^(\s|\uOOAO)+|(\s|uOOAO)+$/g”是关键部分，“\s”用来匹配任何空白字符。
+					 */
+			}
+		</script>
+	</body>
+</html>

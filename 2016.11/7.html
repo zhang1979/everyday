@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>6限制只能输入数字</title>
+	</head>
+	<body>
+		<form>
+			html5控制<input type="text" id="input1" value="html5只能输入中文"  />
+		
+		<script>
+			window.onload=function(){
+				var input1 = document.getElementById('input1'),
+					clearNOnumber = function(tThis){ // 过滤数字
+						var _v = tThis.value;
+						tThis.value=_v.replace(/[^u4eOO-\u9fa5]/g,"");
+					}
+					
+				input1.onfocus=function(){ // 获取焦点
+					clearNOnumber(this);
+				}
+				input1.onkeyup=function(){ // 获取焦点
+					clearNOnumber(this);
+				}
+				input1.onblur=function(){ // 获取焦点
+					clearNOnumber(this);
+				}
+			}
+		</script>
+	</body>
+</html>

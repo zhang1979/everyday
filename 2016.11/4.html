@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>禁止复制与粘贴</title>
+	</head>
+	<body>
+		<h2>禁止复制与粘贴</h2>
+		<p id="p1">小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘小薇呀，你是个美丽的姑娘</p>
+		<div id="div1">
+			<div>这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话</div>	
+			<div>隔壁老王。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</div>	
+			<div>防火防水防闺蜜防火防水防闺蜜防火防水防闺蜜防火防水防闺蜜防火防水防闺蜜防火防水防闺蜜防火防水防闺蜜防火防水防闺蜜防火防水防闺蜜</div>	
+			<div>这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话</div>	
+			<div>这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话</div>	
+			<div>这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话</div>	
+			<div>这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话这TM的是个笑话</div>	
+		</div>
+		<br />
+		<br />
+		<br />
+		<label>禁止粘贴事件：</label><input id="input1" type="text" value="禁止粘贴事件" />
+		<script>
+			window.onload=function(){
+				var banCopyPaste = document.getElementById('p1');
+				banCopyPaste.oncopy = function (){ // 禁止复制事件
+					return false;
+				}
+				var div1 = document.getElementById('div1');
+				div1.oncopy = function (){ // 禁止复制事件
+					return false;
+				}
+				var input1 = document.getElementById('input1');
+				input1.onpaste = function(){ // 禁止粘贴事件
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>
