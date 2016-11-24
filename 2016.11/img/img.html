@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>图片懒加载（未能真正延迟控制请求数量）</title>
+		<style> 
+			body{ 
+			margin: 0; 
+			text-align: center;
+			} 
+			ul{
+			width: 1000px; 
+			margin: 0 auto; 
+			padding: 0; 
+			list-style: none; 
+			text-align: center;
+			} 
+			img{ 
+			border: none; 
+			vertical-align: middle; 
+			} 
+			.in{ 
+			border: 1px solid black; 
+			margin: 10px; 
+			text-align: center; 
+			height: 400px; 
+			width: 400px; 
+			display: inline-block;
+			} 
+			.in img{ 
+			height: 400px; 
+			width: 400px; 
+			} 
+		</style>
+	</head>
+	<body class="ni-body">
+		<h1>图片懒加载（未能真正延迟控制请求数量）</h1>
+		<ul class="list"> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/01.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/02.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/03.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/04.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/05.jpg"></li>
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/01.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/02.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/03.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/04.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/05.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/01.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/02.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/03.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/04.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/05.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/01.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/02.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/03.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/04.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/05.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/01.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/02.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/03.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/04.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/05.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/01.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/02.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/03.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/04.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/05.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/01.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/02.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/03.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/04.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/05.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/01.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/02.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/03.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/04.jpg"></li> 
+			<li class="in"><img src="img/xia.png" alt="测试" data-src = "img/05.jpg"></li> 
+		</ul> 
+		
+		
+		
+		<script> 
+			// 获取所有的图片
+			var aImages = document.images; 
+			// 给所有的图片添加赖加载事件
+			loadImg(aImages); 
+			// 滚动页面时给所有的图片添加赖加载事件
+			window.onscroll = function(){ 
+				loadImg(aImages); 
+			};
+			// 添加懒加载事件
+			function loadImg(arr){
+				for( var i = 0,len = arr.length; i < len; i++){ 
+					// 元素上边距离页面上边的距离  < 整个页面的高度，包括滚动隐藏的区域
+					if(arr[i].getBoundingClientRect().top < document.documentElement.clientHeight && !arr[i].isLoad){ 
+						arr[i].isLoad = true; 
+						arr[i].style.cssText = "transition: ''; opacity: 0;" 
+						if(arr[i].dataset){ // 兼容，支持这个属性的调用 if的
+							aftLoadImg(arr[i],arr[i].dataset.src); 
+						}else{ 	// 兼容不支持dateset的调用else的方法
+							aftLoadImg(arr[i],arr[i].getAttribute("data-src")); 
+						} 
+						(function(i){
+							setTimeout(function(){ 
+								arr[i].style.cssText = "transition: 1s; opacity: 1;" 
+							},16) 
+						})(i); 
+					} 
+				} 
+			} 
+			function aftLoadImg(obj,url){ 
+				var oImg = new Image(); 
+				oImg.onload = function(){ 
+					obj.src = oImg.src; 
+				} 
+				oImg.src = url; 
+			} 
+		 
+		</script> 
+	</body>
+</html>
