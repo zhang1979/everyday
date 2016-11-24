@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>广告买卖网</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul li{
+				padding-right: 10px;
+				padding-left: 10px;
+				font-size: 20px;
+				line-height: 45px;
+				border-bottom: 1px solid #e5e5e5;
+			}
+			.btn{
+				display: block;
+				width: 100%;
+				font-size: 18px;
+				height: 45px;
+				line-height: 45px;
+				text-align: center;
+			    background-color: #18b4ed;
+			    border-color: #0baae4;
+			    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#1fbaf3),to(#18b4ed));
+			    color: #fff;
+			     border: 1px solid #cacccd;
+			}
+			.listStart:active{
+				background: #f2f2f2;
+			}
+			.btnStart:active{
+				background: #1ca7da;
+			    border-color: #1ca7da;
+				color: rgba(255,255,255,.5);
+			}
+			.box{
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="listStart">点击会变色，松开恢复模样</li>
+			<li class="listStart">这是一个列表页</li>
+		</ul>
+		<div class="box">
+			<button class="btn btnStart" href="">按钮点击变色，松开恢复</button>	
+		</div>
+	
+	
+	
+	<script>
+		
+		//  ========== 
+		//  = 列表，按下改变背景色，松开恢复 = 
+		//  ========== 
+		function listTouch(){
+			var thend = document.getElementsByClassName('listStart');
+			for(var i=0;i<thend.length;i++){
+				thend[i].addEventListener('touchstart',listStart);
+			}
+		}
+		function listStart(){
+			this.addEventListener('touchend',listEnd)
+			this.classList.add('sel');
+		}
+		function listEnd(){
+			this.classList.remove('sel');
+		}
+		
+		//  ========== 
+		//  = 按钮，按下改变背景色，松开恢复 = 
+		//  ========== 
+		function btnTouch(){
+			var thend = document.getElementsByClassName('btnStart');
+			for(var i=0;i<thend.length;i++){
+				thend[i].addEventListener('touchstart',btnStart);
+			}
+		}
+		function btnStart(){
+			this.addEventListener('touchend',btnEnd)
+			this.classList.add('sel2');
+		}
+		function btnEnd(){
+			this.classList.remove('sel2');
+		}
+		
+		listTouch();
+		 btnTouch();
+	</script>
+	</body>
+</html>
